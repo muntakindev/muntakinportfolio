@@ -1,0 +1,15 @@
+{
+  "name": "muntakin-futuristic-portfolio",
+  "version": "1.0.0",
+  "description": "Premium futuristic portfolio website for Muntakin with animated UI and contact API.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Muntakin",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}

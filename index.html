@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Muntakin - Full Stack Web Developer. Premium futuristic portfolio with animated UI/UX, projects, services, testimonials, and contact." />
+  <title>Muntakin | Futuristic Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-ring"></div>
+    <p>Fusing code and cosmic design...</p>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+
+  <header class="topbar" id="topbar">
+    <div class="brand">Muntakin</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle">Menu</button>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Muntakin</span></h1>
+      <h2 class="typing-text"></h2>
+      <p>Full Stack Web Developer focused on building premium, responsive, and high-performance digital experiences for modern brands.</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="#contact" class="btn btn-secondary">Work Together</a>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-card glass-card">
+        <span>Contact</span>
+        <strong>01728995707</strong>
+      </div>
+      <div class="meta-card glass-card">
+        <span>Location</span>
+        <strong>Chittagong, Bangladesh</strong>
+      </div>
+      <div class="meta-card glass-card">
+        <span>Email</span>
+        <strong>takinmun@gmail.com</strong>
+      </div>
+    </div>
+    <div class="hero-animation" aria-hidden="true">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+    </div>
+  </section>
+
+  <main>
+    <section class="about-section section" id="about">
+      <div class="section-header">
+        <h3>About Me</h3>
+        <p>Crafting visionary digital products with premium motion and elegant interaction.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-card glass-card">
+          <h4>Who I Am</h4>
+          <p>I build modern web experiences using the latest technologies. My focus is creating clean, responsive, and user-friendly websites for businesses, startups, and individuals.</p>
+        </div>
+        <div class="about-card stats-card glass-card">
+          <div class="stat-item"><span>02+</span><p>Years Experience</p></div>
+          <div class="stat-item"><span>10+</span><p>Projects Completed</p></div>
+          <div class="stat-item"><span>15+</span><p>Clients Worldwide</p></div>
+          <div class="stat-item"><span>12</span><p>Skills Mastered</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section section" id="skills">
+      <div class="section-header">
+        <h3>Skills</h3>
+        <p>Technology stack and capabilities with premium motion and glows.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card glass-card">
+          <h4>Front-End</h4>
+          <div class="skill-line"><span>HTML</span><div class="bar"><div class="fill" style="width: 95%"></div></div></div>
+          <div class="skill-line"><span>CSS</span><div class="bar"><div class="fill" style="width: 92%"></div></div></div>
+          <div class="skill-line"><span>JavaScript</span><div class="bar"><div class="fill" style="width: 90%"></div></div></div>
+          <div class="skill-line"><span>React</span><div class="bar"><div class="fill" style="width: 88%"></div></div></div>
+        </div>
+        <div class="skill-card glass-card">
+          <h4>Back-End</h4>
+          <div class="skill-line"><span>Node.js</span><div class="bar"><div class="fill" style="width: 90%"></div></div></div>
+          <div class="skill-line"><span>Express</span><div class="bar"><div class="fill" style="width: 85%"></div></div></div>
+          <div class="skill-line"><span>MongoDB</span><div class="bar"><div class="fill" style="width: 80%"></div></div></div>
+          <div class="skill-line"><span>Firebase</span><div class="bar"><div class="fill" style="width: 78%"></div></div></div>
+        </div>
+        <div class="skill-card glass-card">
+          <h4>Tools</h4>
+          <div class="skill-icons">
+            <span>GitHub</span>
+            <span>REST API</span>
+            <span>Tailwind</span>
+            <span>Next.js</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section section" id="projects">
+      <div class="section-header">
+        <h3>Portfolio</h3>
+        <p>Project showcases with stunning hover motion and immersive previews.</p>
+      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <section class="services-section section" id="services">
+      <div class="section-header">
+        <h3>Services</h3>
+        <p>Premium services built for future-ready brands and digital products.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card glass-card">
+          <h4>Web App Development</h4>
+          <p>Enterprise-level web applications with responsive design and robust performance.</p>
+        </div>
+        <div class="service-card glass-card">
+          <h4>UI/UX Design</h4>
+          <p>Futuristic interfaces with premium motion, glassmorphism, and usability-first flows.</p>
+        </div>
+        <div class="service-card glass-card">
+          <h4>Brand Experiences</h4>
+          <p>Digital storytelling for brands using immersive visual systems and interactive motion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section section" id="testimonials">
+      <div class="section-header">
+        <h3>Testimonials</h3>
+        <p>Client feedback presented with elegant motion and premium style.</p>
+      </div>
+      <div class="testimonial-slider" id="testimonialSlider"></div>
+    </section>
+
+    <section class="contact-section section" id="contact">
+      <div class="section-header">
+        <h3>Contact</h3>
+        <p>Let’s build your next premium digital experience together.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-panel glass-card">
+          <h4>Get in Touch</h4>
+          <p>Phone: 01728995707</p>
+          <p>Location: Chittagong, Bangladesh</p>
+          <p>Coordinates: 22.362907, 91.792700</p>
+          <p>Email: takinmun@gmail.com</p>
+          <div class="contact-actions">
+            <a href="https://wa.me/8801728995707" target="_blank" class="btn btn-secondary">WhatsApp</a>
+            <a href="tel:+8801728995707" class="btn btn-secondary">Call Now</a>
+            <a href="mailto:takinmun@gmail.com" class="btn btn-secondary">Email</a>
+          </div>
+        </div>
+        <form class="contact-form glass-card" id="contactForm">
+          <div class="field-group">
+            <input type="text" name="name" id="name" autocomplete="off" required />
+            <label for="name">Name</label>
+            <span class="field-icon">👤</span>
+          </div>
+          <div class="field-group">
+            <input type="email" name="email" id="email" autocomplete="off" required />
+            <label for="email">Email</label>
+            <span class="field-icon">✉️</span>
+          </div>
+          <div class="field-group">
+            <input type="tel" name="phone" id="phone" autocomplete="off" required />
+            <label for="phone">Phone</label>
+            <span class="field-icon">📞</span>
+          </div>
+          <div class="field-group">
+            <input type="text" name="subject" id="subject" autocomplete="off" required />
+            <label for="subject">Subject</label>
+            <span class="field-icon">📝</span>
+          </div>
+          <div class="field-group textarea-group">
+            <textarea name="message" id="message" rows="5" required></textarea>
+            <label for="message">Message</label>
+            <span class="field-icon">💬</span>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn">Send Message</button>
+          <div class="form-response" id="formResponse"></div>
+        </form>
+      </div>
+      <div class="map-frame glass-card">
+        <h4>Find Me</h4>
+        <div class="map-placeholder">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12269.65192198814!2d91.792700!3d22.362907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1700000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <img class="map-pin" src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Map pin" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Muntakin. Crafted with futuristic motion and premium design.</p>
+    <div class="footer-links">
+      <a href="https://www.facebook.com/robiuzzaman.muntakin" target="_blank">Facebook</a>
+      <a href="#home">Back to top</a>
+    </div>
+  </footer>
+
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content glass-card">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="modal-inner" id="modalInner"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
