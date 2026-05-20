@@ -401,6 +401,14 @@ body::before {
   overflow: hidden;
 }
 
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin: 0 0 1.3rem;
+}
+
 .project-card::before {
   content: '';
   position: absolute;

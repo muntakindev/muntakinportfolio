@@ -6,35 +6,33 @@ const modalClose = document.getElementById('modalClose');
 const modalInner = document.getElementById('modalInner');
 const projectsGrid = document.getElementById('projectsGrid');
 const testimonialSlider = document.getElementById('testimonialSlider');
-const contactForm = document.getElementById('contactForm');
-const formResponse = document.getElementById('formResponse');
 
 const projects = [
   {
     title: 'NeuroFlow Studio',
     description: 'Modern AI business website with responsive design and animations.',
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80',
     tags: ['React', 'Tailwind', 'Responsive'],
     demo: 'https://neuroflow-studio.netlify.app/',
     link: 'https://neuroflow-studio.netlify.app/',
+    image: 'https://image.thum.io/get/https://neuroflow-studio.netlify.app/',
     details: 'A sleek AI business landing page designed for premium performance and immersive visual storytelling.'
   },
   {
     title: 'LuxeStyle Finder',
     description: 'Elegant luxury fashion discovery platform with premium UI and responsive shopping experience.',
-    image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80',
     tags: ['E-commerce', 'JavaScript', 'UI/UX'],
     demo: 'https://luxury-style-finder--robiuzzaman5.replit.app/',
     link: 'https://luxury-style-finder--robiuzzaman5.replit.app/',
+    image: 'https://s0.wp.com/mshots/v1/https://luxury-style-finder--robiuzzaman5.replit.app/?w=700',
     details: 'A luxury fashion experience with glimmering visuals and refined browsing interactions for premium shoppers.'
   },
   {
     title: 'Finora Dashboard',
     description: 'Modern analytics dashboard with premium UI, responsive layout, and interactive data visualization.',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80',
     tags: ['Dashboard', 'Node.js', 'Data'],
     demo: 'https://muntakinpr3.netlify.app/',
     link: 'https://muntakinpr3.netlify.app/',
+    image: '/assets/finora-dashboard.png',
     details: 'A powerful analytics dashboard with a futuristic interface and data-driven design for modern teams.'
   }
 ];
@@ -57,16 +55,24 @@ const testimonials = [
   }
 ];
 
-const heroPhrases = ['Full Stack Web Developer', 'Futuristic UI Architect', 'Premium Digital Experience Designer'];
+const heroPhrases = [
+  'Full Stack Web Developer',
+  'Futuristic UI Architect',
+  'Premium Digital Experience Designer'
+];
+
 let heroIndex = 0;
 let typeIndex = 0;
 let typingForward = true;
 const typingElement = document.querySelector('.typing-text');
 
 function typeHeroText() {
+  if (!typingElement) return;
+
   const currentPhrase = heroPhrases[heroIndex];
   const substring = currentPhrase.slice(0, typeIndex);
   typingElement.textContent = substring;
+
   if (typingForward) {
     if (typeIndex < currentPhrase.length) {
       typeIndex++;
@@ -90,50 +96,80 @@ function typeHeroText() {
 typeHeroText();
 
 window.addEventListener('load', () => {
-  pageLoader.style.opacity = '0';
-  pageLoader.style.pointerEvents = 'none';
-  setTimeout(() => pageLoader.style.display = 'none', 500);
+  if (pageLoader) {
+    pageLoader.style.opacity = '0';
+    pageLoader.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+      pageLoader.style.display = 'none';
+    }, 500);
+  }
 });
 
 window.addEventListener('mousemove', (event) => {
-  cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+  if (cursor) {
+    cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+  }
 });
 
-const hoverables = document.querySelectorAll('a, button, .project-card, .service-card');
-hoverables.forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width = '30px';
-    cursor.style.height = '30px';
-    cursor.style.backgroundColor = 'rgba(59, 94, 255, 0.18)';
+function initCursorHover() {
+  const hoverables = document.querySelectorAll(
+    'a, button, .project-card, .service-card'
+  );
+
+  hoverables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (cursor) {
+        cursor.style.width = '30px';
+        cursor.style.height = '30px';
+        cursor.style.backgroundColor = 'rgba(59, 94, 255, 0.18)';
+      }
+    });
+
+    el.addEventListener('mouseleave', () => {
+      if (cursor) {
+        cursor.style.width = '18px';
+        cursor.style.height = '18px';
+        cursor.style.backgroundColor = 'transparent';
+      }
+    });
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width = '18px';
-    cursor.style.height = '18px';
-    cursor.style.backgroundColor = 'transparent';
-  });
-});
+}
 
 function buildProjects() {
+  if (!projectsGrid) return;
+
   projectsGrid.innerHTML = projects.map((project, index) => `
     <article class="project-card" data-index="${index}">
       <div>
         <h4>${project.title}</h4>
+        ${project.image ? `<img src="${project.image}" alt="${project.title} preview">` : ''}
         <p>${project.description}</p>
       </div>
+
       <div class="project-tags">
-        ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+        ${project.tags.map(tag =>
+          `<span class="project-tag">${tag}</span>`
+        ).join('')}
       </div>
-      <a class="btn btn-secondary" href="#" data-index="${index}">View Details</a>
+
+      <a class="btn btn-secondary" href="#" data-index="${index}">
+        View Details
+      </a>
     </article>
   `).join('');
 }
 
 function buildTestimonials() {
+  if (!testimonialSlider) return;
+
   testimonialSlider.innerHTML = testimonials.map(item => `
     <article class="testimonial-card">
       <p>"${item.quote}"</p>
+
       <div class="testimonial-author">
         <span class="author-avatar">${item.name.slice(0, 1)}</span>
+
         <div>
           <strong>${item.name}</strong>
           <p>${item.role}</p>
@@ -145,77 +181,83 @@ function buildTestimonials() {
 
 function openModal(index) {
   const project = projects[index];
+
+  if (!modalInner || !projectModal) return;
+
   modalInner.innerHTML = `
     <div>
       <h2>${project.title}</h2>
       <p>${project.details}</p>
+
       <div class="modal-meta">
         ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
       </div>
-      <div class="modal-actions" style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
-        <a href="${project.demo}" target="_blank" class="btn btn-primary">Live Demo</a>
-        <a href="${project.link}" target="_blank" class="btn btn-secondary">Project Link</a>
+
+      <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="${project.demo}" target="_blank" class="btn btn-primary">
+          Live Demo
+        </a>
+
+        <a href="${project.link}" target="_blank" class="btn btn-secondary">
+          Project Link
+        </a>
       </div>
     </div>
   `;
+
   projectModal.classList.add('open');
 }
 
-projectsGrid.addEventListener('click', (event) => {
-  const target = event.target.closest('[data-index]');
-  if (!target) return;
-  event.preventDefault();
-  const index = Number(target.dataset.index);
-  openModal(index);
-});
+if (projectsGrid) {
+  projectsGrid.addEventListener('click', (event) => {
+    const target = event.target.closest('[data-index]');
+    if (!target) return;
 
-modalClose.addEventListener('click', () => projectModal.classList.remove('open'));
-modalBackdrop.addEventListener('click', () => projectModal.classList.remove('open'));
+    event.preventDefault();
+
+    const index = Number(target.dataset.index);
+    openModal(index);
+  });
+}
+
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    projectModal.classList.remove('open');
+  });
+}
+
+if (modalBackdrop) {
+  modalBackdrop.addEventListener('click', () => {
+    projectModal.classList.remove('open');
+  });
+}
+
 window.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') projectModal.classList.remove('open');
-});
-
-contactForm.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  formResponse.textContent = '';
-  const payload = {
-    name: contactForm.name.value,
-    email: contactForm.email.value,
-    phone: contactForm.phone.value,
-    subject: contactForm.subject.value,
-    message: contactForm.message.value,
-  };
-
-  try {
-    const response = await fetch('/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const data = await response.json();
-    if (data.success) {
-      formResponse.textContent = data.message;
-      contactForm.reset();
-    } else {
-      formResponse.textContent = 'Unable to send message. Please try again.';
-    }
-  } catch (error) {
-    formResponse.textContent = 'Network error. Please check your connection.';
+  if (event.key === 'Escape' && projectModal) {
+    projectModal.classList.remove('open');
   }
 });
 
 function initScrollReveal() {
-  const sections = document.querySelectorAll('.section, .hero-content, .project-card, .service-card, .testimonial-card, .glass-card');
+  const sections = document.querySelectorAll(
+    '.section, .hero-content, .project-card, .service-card, .testimonial-card, .glass-card'
+  );
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.style.transform = 'translateY(0)';
         entry.target.style.opacity = '1';
-        entry.target.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+        entry.target.style.transition =
+          'opacity 0.9s ease, transform 0.9s ease';
+
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.18 });
+  }, {
+    threshold: 0.18
+  });
+
   sections.forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(25px)';
@@ -225,4 +267,5 @@ function initScrollReveal() {
 
 buildProjects();
 buildTestimonials();
+initCursorHover();
 initScrollReveal();
