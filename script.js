@@ -23,7 +23,7 @@ const projects = [
     tags: ['E-commerce', 'JavaScript', 'UI/UX'],
     demo: 'https://luxury-style-hub--takinmun.replit.app/',
     link: 'https://luxury-style-hub--takinmun.replit.app/',
-    image: '/assets/luxestyle-finder.png',
+    image: 'E:\muntakinportfilo\assets\luxestyle-finder.png',
     details: 'A luxury fashion experience with glimmering visuals and refined browsing interactions for premium shoppers.'
   },
   {
